@@ -1,0 +1,103 @@
+body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	--hide-width: 20vw;
+}
+
+header#hideHeader {
+	width: var(--hide-width);
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	border-right: 1px solid #888;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	transform: translateX(var(--transform-width));
+	--transform-width: calc(-1 * var(--hide-width));
+	transition: all .1s ease-out;
+	box-sizing: border-box;
+	padding: 60px 30px;
+}
+input[type="checkbox"]#setting {
+	display: none;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	bottom: 0;
+	border: none;
+	cursor: pointer;
+	transition: all .1s ease-out;
+}
+#mainContents {
+	width: 100vw;
+	height: 100vh;
+}
+label#setting-style {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	bottom: 0;
+}
+label#setting-style img {
+	width: 100%;
+	height: 100%;
+	transition: all .1s ease-out;
+}
+input[type="checkbox"]#setting:checked ~ label#setting-style > img {
+	transform: rotate(90deg);
+	transition: all .1s ease-out;
+}
+input[type="checkbox"]#setting:checked,
+input[type="checkbox"]#setting:checked ~ label#setting-style {
+	transform: translateX(var(--hide-width));
+	transition: all .1s ease-out;
+}
+input[type="checkbox"]#setting:checked ~ header#hideHeader {
+	transform: translateX(0);
+	transition: all .1s ease-out;
+}
+.setCount {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 30px;
+}
+.setCount > h6 {
+	margin: 0;
+	padding: 0;
+	font-size: large;
+	font-weight: normal;
+}
+.setCount input[type="range"] {
+	width: 100%;
+}
+
+.displayValue {
+	padding-left: 20px;
+}
+#randomNumber {
+	font-size: 128px;
+	transform: translate(-50%, -50%);
+  margin-left: 50%;
+	margin-top: 50vh;
+	text-align: center;
+}
+#generate {
+	background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  width: 60%;
+  order: 2;
+  box-sizing: border-box;
+  cursor: pointer;
+  transform: translateX(-50%);
+  margin-left: 50%;
+}
+#option {
+	display: flex;
+	flex-direction: column;
+}
+#option input[type="range"] {
+	width: 100%;
+}
